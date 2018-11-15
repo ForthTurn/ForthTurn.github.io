@@ -9,7 +9,7 @@
 title: ForthTurn的技术博客
 brief-intro: A student of UESTC learing 
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://ladabian.github.io" # the base hostname & protocol for your site
+url: "https://ForthTurn.github.io" # the base hostname & protocol for your site
 
 permalink: /:year/:month/:day/:title/
 
