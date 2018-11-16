@@ -11,8 +11,6 @@ type: page
 
 ## 关于我
 
-<iframe src="https://githubbadge.appspot.com/gaohaoyang?s=1" style="border: 0;height: 142px;width: 200px;overflow: hidden;" frameBorder="0"></iframe>
-
 明宇扬，现就读于电子科技大学（UESTC）软件工程专业，大一（2018年），微软学生俱乐部（MSC）成员，正在学习C、Python、STM32开发以及数学建模。真实菜鸡一只。
 
 ## 联系我
