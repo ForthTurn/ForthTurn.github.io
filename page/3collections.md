@@ -1,4 +1,15 @@
-﻿## 目录
+---
+layout: page
+title: Collections
+permalink: /collection/
+icon: bookmark
+type: page
+---
+
+* content
+{:toc}
+
+## 目录
 
 * [语言无关](#语言无关)
   * [IDE](#ide)
@@ -699,3 +710,8 @@
 ### WebAssembly
 
 * [C/C++面向WebAssembly编程](https://github.com/3dgen/cppwasm-book)
+
+## Comments
+
+{% include comments.html %}
+
