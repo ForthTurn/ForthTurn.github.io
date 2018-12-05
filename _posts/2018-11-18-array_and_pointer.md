@@ -3,7 +3,7 @@ layout: post
 title:  "关于数组的指针用法的一点个人见解"
 date:   2018-11-18 00:40:00
 categories: C语言
-tags: 指针 数组 c
+tags: 指针 数组 C
 excerpt: 当二维数组仅给出一个下标时的情况
 mathjax: true
 ---
