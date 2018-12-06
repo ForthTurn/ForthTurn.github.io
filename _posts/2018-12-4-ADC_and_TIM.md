@@ -87,11 +87,11 @@ int main(void)
 
 用ODR操作GPIO的伪代码如下：
 
-disable_irq()
-save_gpio_pin_sate = read_gpio_pin_state();
-save_gpio_pin_sate = xxxx;
-chang_gpio_pin_state(save_gpio_pin_sate);
-enable_irq();
+disable_irq()\
+save_gpio_pin_sate = read_gpio_pin_state();\
+save_gpio_pin_sate = xxxx;\
+chang_gpio_pin_state(save_gpio_pin_sate);\
+enable_irq();\
 
 关闭中断明显会延迟或丢失一事件的捕获，所以控制GPIO的状态最好还是用SBRR和BRR。
 
@@ -144,7 +144,7 @@ GPIOE->BRR = ~Newdata & 0xff;
 如果没有BSRR的高16位，则要分2次操作，结果造成位7和位6的变化不同步！ 
 
   GPIOE->BSRR = 0x80; 
-  
+
   GPIOE->BRR = 0x40;
 
 
