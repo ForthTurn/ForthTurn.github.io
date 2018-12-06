@@ -77,21 +77,27 @@ int main(void)
 
 刚开始或许你跟我一样有以下疑惑：
 
-1.既然ODR 能控制管脚高低电平为什么还需要BSRR和SRR寄存器？
-2.既然BSRR能实现BRR的全部功能，为什么还需要SRR寄存器？
+1.既然ODR 能控制管脚高低电平为什么还需要BSRR和SRR寄存器?
+
+2.既然BSRR能实现BRR的全部功能，为什么还需要SRR寄存器?
 
 对于问题 1 ------ 意法半导体给的答案是---
 
 “This way, there is no risk that an IRQ occurs between the read and the modify access.”
+
 什么意思呢？就就是你用BSRR和BRR去改变管脚状态的时候，没有被中断打断的风险。也就不需要关闭中断。
 
 用ODR操作GPIO的伪代码如下：
 
-disable_irq()\
-save_gpio_pin_sate = read_gpio_pin_state();\
-save_gpio_pin_sate = xxxx;\
-chang_gpio_pin_state(save_gpio_pin_sate);\
-enable_irq();\
+disable_irq()
+
+save_gpio_pin_sate = read_gpio_pin_state();
+
+save_gpio_pin_sate = xxxx;
+
+chang_gpio_pin_state(save_gpio_pin_sate);
+
+enable_irq();
 
 关闭中断明显会延迟或丢失一事件的捕获，所以控制GPIO的状态最好还是用SBRR和BRR。
 
@@ -113,16 +119,18 @@ enable_irq();\
 
 这个要求可以通过操作这两个寄存器实现，STM32的固件库中有两个函数
 
-GPIO_SetBits()和GPIO_ResetBits()使用了这两个寄存器操作端口。
+`GPIO_SetBits()`和`GPIO_ResetBits()`使用了这两个寄存器操作端口。
 
 上述要求可以这样实现：
 
 GPIO_SetBits(GPIOE, Newdata & 0xff);
+
 GPIO_ResetBits(GPIOE, (~Newdata & 0xff));
 
 也可以直接操作这两个寄存器：
 
 GPIOE->BSRR = Newdata & 0xff;
+
 GPIOE->BRR = ~Newdata & 0xff;
 
 当然还可以一次完成对8位的操作：
