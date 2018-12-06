@@ -127,21 +127,24 @@ GPIOE->BRR = ~Newdata & 0xff;
 
 当然还可以一次完成对8位的操作：
 
-GPIOE->BSRR = (Newdata & 0xff) | ( (~Newdata & 0xff)<<16 );
+`GPIOE->BSRR = (Newdata & 0xff) | ( (~Newdata & 0xff)<<16 );`
 
 当然还可以一次完成对16位的操作：
 
-GPIOE->BSRR = (Newdata & 0xffff) | ( (~Newdata )<<16 );
+`GPIOE->BSRR = (Newdata & 0xffff) | ( (~Newdata )<<16 );`
 
 从最后这个操作可以看出使用BSRR寄存器，可以实现8个端口位的同时修改操作。
 
 有人问是否BSRR的高16位是多余的，请看下面这个例子：
 
 假如你想在一个操作中对GPIOE的位7置'1'，位6置'0'，则使用BSRR非常方便： 
+
   GPIOE->BSRR = 0x400080; 
 
 如果没有BSRR的高16位，则要分2次操作，结果造成位7和位6的变化不同步！ 
+
   GPIOE->BSRR = 0x80; 
+  
   GPIOE->BRR = 0x40;
 
 
