@@ -57,4 +57,23 @@ const是c语言中的一个常用关键字，用来声明一个变量是不可�
 
 这个很好理解，两个const都存在，那显然是常量指针指向常量对象。  
 指针的地址不能改变，指针所指向的对象也不能改变。  
+等价于`int const*const`
 
+# 三、总结 #
+
+英文中可以这么说：
+
+`int const*` is pointer to const int  
+`int *const` is const pointer to int  
+`int const* const` is const pointer to const int  
+
+Using this rule, even complex declarations can be decoded like,
+
+`int ** const` is a const pointer to pointer to an int.  
+`int * const *` is a pointer to const pointer to an int.  
+`int const **` is a pointer to a pointer to a const int.  
+`int * const * const` is a const pointer to a const pointer to an int.  
+`int const * const * const` is a const pointer to a const poiner to a const int.
+
+总之，对此类定义可以这么解读：  
+相邻的const和type可以互换位置，然后从后向前读。可以解决所有该类问题。
