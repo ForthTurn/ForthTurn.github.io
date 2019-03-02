@@ -76,4 +76,4 @@ Using this rule, even complex declarations can be decoded like,
 `int const * const * const` is a const pointer to a const poiner to a const int.
 
 总之，对此类定义可以这么解读：  
-相邻的const和type可以互换位置，然后从后向前读。可以解决所有该类问题。
+相邻的`const`和`type`可以互换位置，然后从后向前读。可以解决所有该类问题。
