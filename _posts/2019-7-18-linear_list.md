@@ -38,5 +38,3 @@ mathjax: true
 以链式存储结构存储的线性表被称为`链表`。
 
 存储结构没有绝对的好坏之分，只有针对某种场景更适合，在使用时应根据实际使用场景选择存储结构。
-
-<iframe src="//player.bilibili.com/player.html?aid=63636549&cid=110497293&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
